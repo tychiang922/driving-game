@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.green-back {
+  background-color: rgb(40 141 37);
+}
+
+img {
+  width: 12%;
+}
+
+.car-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
