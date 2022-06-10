@@ -8,6 +8,7 @@ var car1Data = {
   }
 };
 var maxRotate = 90;
+var carSpeed = 5;
 var carMove;
 
 window.addEventListener('keyup', function rotateAction(event) {
@@ -35,19 +36,19 @@ window.addEventListener('keydown', function startCar(event) {
         switch (car1Data.rotate) {
           case 0:
             $car1.style.left = car1Data.position.left.toString() + 'px';
-            car1Data.position.left += 2;
+            car1Data.position.left += carSpeed;
             break;
           case 90:
             $car1.style.top = car1Data.position.top.toString() + 'px';
-            car1Data.position.top += 2;
+            car1Data.position.top += carSpeed;
             break;
           case 180:
             $car1.style.left = car1Data.position.left.toString() + 'px';
-            car1Data.position.left -= 2;
+            car1Data.position.left -= carSpeed;
             break;
           case 270:
             $car1.style.top = car1Data.position.top.toString() + 'px';
-            car1Data.position.top -= 2;
+            car1Data.position.top -= carSpeed;
             break;
         }
       }, 16);
