@@ -8,6 +8,7 @@ var car1Data = {
   }
 };
 var maxRotate = 90;
+var carSpeed = 5;
 var carMove;
 
 window.addEventListener('keyup', function rotateAction(event) {
@@ -19,10 +20,10 @@ window.addEventListener('keyup', function rotateAction(event) {
     $car1.style.transform = 'rotate(' + car1Data.rotate.toString() + 'deg)';
   }
   if (event.key === 'ArrowLeft') {
-    car1Data.rotate -= maxRotate;
     if (car1Data.rotate === 0) {
       car1Data.rotate = 360;
     }
+    car1Data.rotate -= maxRotate;
     $car1.style.transform = 'rotate(' + car1Data.rotate.toString() + 'deg)';
   }
 });
@@ -32,8 +33,24 @@ window.addEventListener('keydown', function startCar(event) {
     if (!car1Data.start) {
       car1Data.start = true;
       carMove = setInterval(function carStart() {
-        $car1.style.left = car1Data.position.left.toString() + 'px';
-        car1Data.position.left += 2;
+        switch (car1Data.rotate) {
+          case 0:
+            $car1.style.left = car1Data.position.left.toString() + 'px';
+            car1Data.position.left += carSpeed;
+            break;
+          case 90:
+            $car1.style.top = car1Data.position.top.toString() + 'px';
+            car1Data.position.top += carSpeed;
+            break;
+          case 180:
+            $car1.style.left = car1Data.position.left.toString() + 'px';
+            car1Data.position.left -= carSpeed;
+            break;
+          case 270:
+            $car1.style.top = car1Data.position.top.toString() + 'px';
+            car1Data.position.top -= carSpeed;
+            break;
+        }
       }, 16);
     } else {
       car1Data.start = false;
