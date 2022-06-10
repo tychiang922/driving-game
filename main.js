@@ -1,6 +1,7 @@
 var $car1 = document.querySelector('.car-1');
 var car1Data = {
   rotate: 0,
+  direction: 'right',
   start: false,
   position: {
     top: 0,
@@ -24,6 +25,20 @@ window.addEventListener('keyup', function rotateAction(event) {
       car1Data.rotate = 360;
     }
     $car1.style.transform = 'rotate(' + car1Data.rotate.toString() + 'deg)';
+  }
+  switch (car1Data.rotate) {
+    case 0:
+      car1Data.direction = 'right';
+      break;
+    case 90:
+      car1Data.direction = 'down';
+      break;
+    case 180:
+      car1Data.direction = 'left';
+      break;
+    case 270:
+      car1Data.direction = 'up';
+      break;
   }
 });
 
